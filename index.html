@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.26.0/babel.min.js"></script>
+    <title>Subhankar</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:wght@300&family=Dosis&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
+</head>
+<body>
+ <nav>
+        <div class="nav-header">
+            <a href="#home" class="logo">SP</a>
+            <div class="controls">
+                <button class="control-button" id="darkModeToggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="control-button" id="musicToggle">
+                    <i class="fas fa-music"></i>
+                </button>
+            </div>
+        </div>
+        <div class="nav-links">
+            <a href="#home" class="active">Home</a>
+            <a href="#projects">Projects</a>
+            <a href="#lists">Lists</a>
+            <!-- <a href="#contact">Contact</a> -->
+        </div>
+        <div class="social-links">
+            <a href="https://github.com/S-panda1" target="_blank">
+                <i class="fab fa-github"></i>
+                <span>GitHub</span>
+            </a>
+            <a href="https://x.com/Glados_33" target="_blank">
+                <i class="fab fa-twitter"></i>
+                <span>Twitter</span>
+            </a>
+            <a href="https://www.linkedin.com/in/subhankar-panda-08b5801ba/" target="_blank">
+                <i class="fab fa-linkedin"></i>
+                <span>LinkedIn</span>
+            </a>
+        </div>
+    </nav>
+
+    <main>
+        <div class="container">
+            <section id="home">
+                <div class="hero">
+                    <h1>Subhankar Panda</h1>
+                    <p>I'm a designer and developer focused on creating clean, thoughtful, and purposeful digital experiences.</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit perspiciatis sit nobis quam sapiente libero enim, tempora, architecto necessitatibus vero vel laborum, assumenda et iure inventore voluptatum maxime. Reprehenderit, enim?</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit perspiciatis sit nobis quam sapiente libero enim, tempora, architecto necessitatibus vero vel laborum, assumenda et iure inventore voluptatum maxime. Reprehenderit, enim?</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit perspiciatis sit nobis quam sapiente libero enim, tempora, architecto necessitatibus vero vel laborum, assumenda et iure inventore voluptatum maxime. Reprehenderit, enim?</p>
+                    <a href="#projects" class="cta-button">Resume</a>
+        </div>
+        <div class="slideshow-container">
+            
+            <div class="slideshow-track">
+                <div class="slide">
+                    <img src="one.png" alt="Image 1">
+                </div>
+                <div class="slide">
+                    <img src="two.png" alt="Image 2">
+                </div>
+                <div class="slide">
+                    <img src="three.webp" alt="Image 3">
+                </div>
+                <div class="slide">
+                    <img src="four.webp" alt="Image 4">
+                </div>
+                <div class="slide">
+                    <img src="five.webp" alt="Image 5">
+                </div>
+                <div class="slide">
+                    <img src="six.webp" alt="Image 6">
+                </div>
+                <div class="slide">
+                    <img src="seven.webp" alt="Image 7">
+                </div>
+                <div class="slide">
+                    <img src="eight.png" alt="Image 8">
+                </div>
+                <div class="slide">
+                    <img src="nine.png" alt="Image 9">
+                </div>
+                <div class="slide">
+                    <img src="ten.png" alt="Image 10">
+                </div>
+            </div>
+            
+            <!-- Duplicate track for seamless loop -->
+            <div class="slideshow-track-2">
+                <div class="slide">
+                    <img src="one.png" alt="Image 1">
+                </div>
+                <div class="slide">
+                    <img src="two.png" alt="Image 2">
+                </div>
+                <div class="slide">
+                    <img src="three.webp" alt="Image 3">
+                </div>
+                <div class="slide">
+                    <img src="four.webp" alt="Image 4">
+                </div>
+                <div class="slide">
+                    <img src="five.webp" alt="Image 5">
+                </div>
+                <div class="slide">
+                    <img src="six.webp" alt="Image 6">
+                </div>
+                <div class="slide">
+                    <img src="seven.webp" alt="Image 7">
+                </div>
+                <div class="slide">
+                    <img src="eight.png" alt="Image 8">
+                </div>
+                <div class="slide">
+                    <img src="nine.png" alt="Image 9">
+                </div>
+                <div class="slide">
+                    <img src="ten.png" alt="Image 10">
+                </div>
+            </div>
+        </div>
+
+            </section>
+
+            <!-- <section id="blog">
+                <h2>Blog</h2>
+                <div class="blog-post">
+                    <h3>The Art of Minimalism</h3>
+                    <div class="blog-date">2024</div>
+                    <p>Exploring the beauty of less in digital design...</p>
+                </div>
+                <div class="blog-post">
+                    <h3>Design Systems That Scale</h3>
+                    <div class="blog-date">2024</div>
+                    <p>Building consistent and maintainable design systems...</p>
+                </div>
+                <div class="blog-post">
+                    <h3>Typography in Web Design</h3>
+                    <div class="blog-date">2024</div>
+                    <p>The impact of type choices in user experience...</p>
+                </div>
+            </section> -->
+    
+            <section id="projects">
+                <h2>Projects</h2>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <h3>Design System</h3>
+                        <p>A comprehensive design system for web applications</p>
+                    </div>
+                    <div class="project-card">
+                        <h3>E-commerce Platform</h3>
+                        <p>Minimalist shopping experience</p>
+                    </div>
+                    <div class="project-card">
+                        <h3>Portfolio Template</h3>
+                        <p>Clean and modern portfolio design</p>
+                    </div>
+                    <div class="project-card">
+                        <h3>Mobile App</h3>
+                        <p>Lifestyle tracking application</p>
+                    </div>
+                </div>
+            </section>
+    
+            <section id="lists">
+                <h2>Lists</h2>
+                <div class="lists-grid">
+                    <div class="list-category">
+                        <h3>Reading</h3>
+                        <ul>
+                            <li>Design of Everyday Things</li>
+                            <li>Grid Systems in Graphic Design</li>
+                            <li>Thinking with Type</li>
+                        </ul>
+                    </div>
+                    <div class="list-category">
+                        <h3>Tools</h3>
+                        <ul>
+                            <li>Figma</li>
+                            <li>Visual Studio Code</li>
+                            <li>Adobe Creative Suite</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+    
+        </div>
+    </main>
+
+    <script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Get all navigation links
+    const navLinks = document.querySelectorAll('.nav-links a');
+    
+    // Smooth scroll functionality
+    navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            const targetSection = document.querySelector(targetId);
+            
+            if (targetSection) {
+                targetSection.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+
+    // Active section highlighting
+    function updateActiveSection() {
+        const sections = document.querySelectorAll('section');
+        const scrollPosition = window.pageYOffset;
+
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop - 100; // Offset for better trigger point
+            const sectionHeight = section.offsetHeight;
+            const sectionId = section.getAttribute('id');
+
+            if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                // Remove active class from all links
+                navLinks.forEach(link => link.classList.remove('active'));
+                
+                // Add active class to corresponding link
+                const correspondingLink = document.querySelector(`.nav-links a[href="#${sectionId}"]`);
+                if (correspondingLink) {
+                    correspondingLink.classList.add('active');
+                }
+            }
+        });
+    }
+
+    // Add scroll event listener
+    window.addEventListener('scroll', updateActiveSection);
+
+    // Dark mode toggle
+    const darkModeToggle = document.getElementById('darkModeToggle');
+    const body = document.body;
+    
+    darkModeToggle.addEventListener('click', () => {
+        body.classList.toggle('dark-mode');
+        const icon = darkModeToggle.querySelector('i');
+        if (body.classList.contains('dark-mode')) {
+            icon.classList.replace('fa-moon', 'fa-sun');
+        } else {
+            icon.classList.replace('fa-sun', 'fa-moon');
+        }
+    });
+
+    // Music player
+    const musicToggle = document.getElementById('musicToggle');
+    const audio = new Audio('midwe.mp3'); // Add your music file path
+    let isPlaying = false;
+
+    musicToggle.addEventListener('click', () => {
+        if (isPlaying) {
+            audio.pause();
+            musicToggle.querySelector('i').classList.replace('fa-pause', 'fa-music');
+        } else {
+            audio.play();
+            musicToggle.querySelector('i').classList.replace('fa-music', 'fa-pause');
+        }
+        isPlaying = !isPlaying;
+    });
+
+    // Call updateActiveSection on page load
+    updateActiveSection();
+});
+    </script>
+
+</body>
+</html>

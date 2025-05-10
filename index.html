@@ -3,279 +3,294 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
-    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
-    <script src="https://unpkg.com/babel-standalone@6.26.0/babel.min.js"></script>
-    <title>Subhankar</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:wght@300&family=Dosis&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <title>Subhankar Panda</title>
+    <script src="https://kit.fontawesome.com/055c773eb0.js" crossorigin="anonymous"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=VT323&family=Electrolize&display=swap');
+        
+        
+        /* Base reset and layout */
+        body {
+            margin: 1em;
+            padding: 0;
+            min-height: 100vh;
+            font-family: 'Electrolize', 'Helvetica Neue', Arial, sans-serif;
+            display: flex;
+            justify-content:flex-start;
+            align-items:flex-start;
+            position: relative;
+            overflow: hidden;
+            color: #fff;
+            border-color: #000000;
 
+            background-image: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 3px,
+    rgb(0, 0, 0) 4px,
+    rgb(0, 0, 0) 2px
+  );
+        }
+
+        /* Animated gradient background */
+        body::before {
+  content: '';
+  position: fixed;
+  top: 3.5em; left: 3.5em; width: 92.5%; height: 88%;
+  background: linear-gradient(-45deg, #00fffb, #ab98ff, #5482ff, #c19fff, #47e6ff, #3a33ff);
+  background-size: 400% 400%;
+  animation: gradientBG 5s ease infinite;
+  z-index: -2;         /* behind the new shader overlay */
+  filter: brightness(1.2);
+
+}
+
+/* 2) Add this new overlay for the stripe “shader” effect */
+body::after {
+  content: '';
+  position: fixed;
+  top: 3.5em; left: 3.5em ; width: 92.5%; height: 88%;
+  /* match the button’s shader pattern: thin diagonal stripes */
+  background-image: repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 2px,
+    rgb(0, 0, 0) 4px,
+    rgb(4, 213, 255) 5px
+  );
+  pointer-events: none; /* so clicks still go through */
+  z-index: -1;    
+  border-color: #000000;      /* above the gradient, below all content */
+}
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .container {
+            position: relative;
+            width: 90%;
+            max-width: 1200px;
+            height: 80vh;
+            border: 1px solid #fff;
+            display: flex;
+            padding: 2rem;
+            background-color: rgb(0, 0, 0);
+      
+            
+        }
+        
+        .left-side {
+            flex: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: space-between;
+        }
+        
+        .right-side {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-end;
+            gap: 2rem;
+        }
+        
+        .name-container {
+            margin-bottom: 3rem;
+            align-self: flex-start;
+        }
+        
+        .name-image {
+            max-width: 300px;
+            height: auto;
+        }
+        
+        .name {
+            font-size: 3.5rem;
+            font-weight: 300;
+            font-family: 'Times New Roman', serif;
+            letter-spacing: 2px;
+            margin: 0;
+            text-align: left;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+            align-self: flex-start;
+            margin-top: auto;
+        }
+        
+        .social-icon {
+            width: 30px;
+            height: 30px;
+            border: 1px solid #000000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 0.8rem;
+        }
+        
+        .section-box {
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            padding: 0.7rem;
+            width: 180px;
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            color: #fff;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: all 0.12s;
+            position: relative;
+            background-color: rgba(20, 20, 20, 0.8);
+            transform: translate(0, 0);
+            box-shadow: 
+                4px 4px 0 rgb(157, 157, 157),
+                inset -2px -2px 0 rgba(0, 0, 0, 0.5);
+        }
+        
+        .section-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: repeating-linear-gradient(
+                -45deg,
+                transparent,
+                transparent 2px,
+                rgba(255, 255, 255, 0.03) 2px,
+                rgba(255, 255, 255, 0.03) 4px
+            );
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .section-box::after {
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 2px;
+            right: -2px;
+            height: 4px;
+            background-image: repeating-linear-gradient(
+                45deg,
+                rgba(255, 255, 255, 0.2),
+                rgba(255, 255, 255, 0.2) 1px,
+                transparent 1px,
+                transparent 3px
+            );
+            transition: all 0.12s;
+            opacity: 0.7;
+            pointer-events: none;
+            z-index: 0;
+        }
+        
+        .section-box:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 
+                6px 6px 0 rgb(0, 255, 247),
+                inset -2px -2px 0 rgba(0, 0, 0, 0.3);
+            background-color: rgba(40, 40, 40, 0.9);
+        }
+        
+        .section-box:hover::after {
+            top: 100%;
+            left: 4px;
+            right: -4px;
+            height: 8px;
+        }
+        
+        .section-box:active {
+            transform: translate(0, 0);
+            box-shadow: 
+                0 0 0 rgba(255, 255, 255, 0.5),
+                inset 2px 2px 3px rgba(0, 0, 0, 0.7);
+            border-color: rgba(255, 255, 255, 0.6);
+            background-color: rgba(30, 30, 30, 1);
+        }
+        
+        .section-box:active::after {
+            opacity: 0;
+        }
+        
+        .section-box span {
+            position: relative;
+            z-index: 2;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                height: auto;
+                padding: 2rem 1rem;
+            }
+            
+            .right-side {
+                margin-top: 3rem;
+                align-items: center;
+            }
+            
+            .name {
+                font-size: 2.5rem;
+            }
+            
+            .section-box {
+                width: 100%;
+                max-width: 250px;
+            }
+        }
+
+        .social-icon,
+.social-icon i {
+  color: #fff;
+}
+
+    </style>
 </head>
 <body>
- <nav>
-        <div class="nav-header">
-            <a href="#home" class="logo">SP</a>
-            <div class="controls">
-                <button class="control-button" id="darkModeToggle">
-                    <i class="fas fa-moon"></i>
-                </button>
-                <button class="control-button" id="musicToggle">
-                    <i class="fas fa-music"></i>
-                </button>
+   
+    <div class="container">
+        <div class="left-side">
+            <div class="name-container">
+                <h1 class="name">Subhankar Panda</h1>
             </div>
-        </div>
-        <div class="nav-links">
-            <a href="#home" class="active">Home</a>
-            <a href="#projects">Projects</a>
-            <a href="#lists">Lists</a>
-            <!-- <a href="#contact">Contact</a> -->
-        </div>
-        <div class="social-links">
-            <a href="https://github.com/S-panda1" target="_blank">
-                <i class="fab fa-github"></i>
-                <span>GitHub</span>
-            </a>
-            <a href="https://x.com/Glados_33" target="_blank">
-                <i class="fab fa-twitter"></i>
-                <span>Twitter</span>
-            </a>
-            <a href="https://www.linkedin.com/in/subhankar-panda-08b5801ba/" target="_blank">
-                <i class="fab fa-linkedin"></i>
-                <span>LinkedIn</span>
-            </a>
-        </div>
-    </nav>
-
-    <main>
-        <div class="container">
-            <section id="home">
-                <div class="hero">
-                    <h1>Subhankar Panda</h1>
-                    <p>As an AI Engineer focused on safety and complex systems, I'm <strong>currently open to full-time internship opportunities in AI Engineering and research</strong>. My experience includes developing recommender systems using SciBERT and MiReAD during <strong>Google Summer of Code</strong>, along with optimizing inference for language models like Mistral and LLaMA. I'm particularly drawn to roles that intersect with AI safety while advancing real-world applications.</p>
-                    <p>This website is currently a work in progress</p>
-<a href="https://drive.google.com/file/d/1QRQAwQMn9K9NQ5-ImE5KqfQsTefKgL3b/view?usp=sharing" class="cta-button">Resume</a>
-        </div>
-        <div class="slideshow-container">
-            
-            <div class="slideshow-track">
-                <div class="slide">
-                    <img src="one.png" alt="Image 1">
-                </div>
-                <div class="slide">
-                    <img src="two.png" alt="Image 2">
-                </div>
-                <div class="slide">
-                    <img src="three.webp" alt="Image 3">
-                </div>
-                <div class="slide">
-                    <img src="four.webp" alt="Image 4">
-                </div>
-                <div class="slide">
-                    <img src="five.webp" alt="Image 5">
-                </div>
-                <div class="slide">
-                    <img src="six.webp" alt="Image 6">
-                </div>
-                <div class="slide">
-                    <img src="seven.webp" alt="Image 7">
-                </div>
-                <div class="slide">
-                    <img src="eight.png" alt="Image 8">
-                </div>
-                <div class="slide">
-                    <img src="nine.png" alt="Image 9">
-                </div>
-                <div class="slide">
-                    <img src="ten.png" alt="Image 10">
-                </div>
-            </div>
-            
-            <!-- Duplicate track for seamless loop -->
-            <div class="slideshow-track-2">
-                <div class="slide">
-                    <img src="one.png" alt="Image 1">
-                </div>
-                <div class="slide">
-                    <img src="two.png" alt="Image 2">
-                </div>
-                <div class="slide">
-                    <img src="three.webp" alt="Image 3">
-                </div>
-                <div class="slide">
-                    <img src="four.webp" alt="Image 4">
-                </div>
-                <div class="slide">
-                    <img src="five.webp" alt="Image 5">
-                </div>
-                <div class="slide">
-                    <img src="six.webp" alt="Image 6">
-                </div>
-                <div class="slide">
-                    <img src="seven.webp" alt="Image 7">
-                </div>
-                <div class="slide">
-                    <img src="eight.png" alt="Image 8">
-                </div>
-                <div class="slide">
-                    <img src="nine.png" alt="Image 9">
-                </div>
-                <div class="slide">
-                    <img src="ten.png" alt="Image 10">
-                </div>
-            </div>
+            <div class="social-icons">
+                <!-- 2) Use shorthand prefixes for a Kit -->
+                <a href="mailto:you@example.com"   class="social-icon" aria-label="Email">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path fill="#ffffff" d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48L48 64zM0 176L0 384c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-208L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"/></svg>
+                </a>
+                <a href="https://twitter.com/yourhandle"   class="social-icon" aria-label="Twitter"  target="_blank">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path fill="#ffffff" d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/></svg>
+                </a>
+                <a href="https://linkedin.com/in/yourprofile" class="social-icon" aria-label="LinkedIn" target="_blank">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path fill="#ffffff" d="M100.3 448H7.4V148.9h92.9zM53.8 108.1C24.1 108.1 0 83.5 0 53.8a53.8 53.8 0 0 1 107.6 0c0 29.7-24.1 54.3-53.8 54.3zM447.9 448h-92.7V302.4c0-34.7-.7-79.2-48.3-79.2-48.3 0-55.7 37.7-55.7 76.7V448h-92.8V148.9h89.1v40.8h1.3c12.4-23.5 42.7-48.3 87.9-48.3 94 0 111.3 61.9 111.3 142.3V448z"/></svg>
+                </a>
+                <a href="https://github.com/yourusername"    class="social-icon" aria-label="GitHub"   target="_blank">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path fill="#ffffff" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3 .3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5 .3-6.2 2.3zm44.2-1.7c-2.9 .7-4.9 2.6-4.6 4.9 .3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3 .7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3 .3 2.9 2.3 3.9 1.6 1 3.6 .7 4.3-.7 .7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3 .7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3 .7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+                </a>
+              </div>
+              
         </div>
 
-            </section>
-
-            <!-- <section id="blog">
-                <h2>Blog</h2>
-                <div class="blog-post">
-                    <h3>The Art of Minimalism</h3>
-                    <div class="blog-date">2024</div>
-                    <p>Exploring the beauty of less in digital design...</p>
-                </div>
-                <div class="blog-post">
-                    <h3>Design Systems That Scale</h3>
-                    <div class="blog-date">2024</div>
-                    <p>Building consistent and maintainable design systems...</p>
-                </div>
-                <div class="blog-post">
-                    <h3>Typography in Web Design</h3>
-                    <div class="blog-date">2024</div>
-                    <p>The impact of type choices in user experience...</p>
-                </div>
-            </section> -->
-    
-            <section id="projects">
-                <h2>Projects</h2>
-                <div class="projects-grid">
-                    <div class="project-card">
-                        <h3>Design System</h3>
-                        <p>A comprehensive design system for web applications</p>
-                    </div>
-                    <div class="project-card">
-                        <h3>E-commerce Platform</h3>
-                        <p>Minimalist shopping experience</p>
-                    </div>
-                    <div class="project-card">
-                        <h3>Portfolio Template</h3>
-                        <p>Clean and modern portfolio design</p>
-                    </div>
-                    <div class="project-card">
-                        <h3>Mobile App</h3>
-                        <p>Lifestyle tracking application</p>
-                    </div>
-                </div>
-            </section>
-    
-            <section id="lists">
-                <h2>Lists</h2>
-                <div class="lists-grid">
-                    <div class="list-category">
-                        <h3>Reading</h3>
-                        <ul>
-                            <li>Design of Everyday Things</li>
-                            <li>Grid Systems in Graphic Design</li>
-                            <li>Thinking with Type</li>
-                        </ul>
-                    </div>
-                    <div class="list-category">
-                        <h3>Tools</h3>
-                        <ul>
-                            <li>Figma</li>
-                            <li>Visual Studio Code</li>
-                            <li>Adobe Creative Suite</li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
-    
+        
+        <div class="right-side">
+            <a href="projects.html" class="section-box"><span>Projects</span></a>
+            <a href="publications.html" class="section-box"><span>Blog</span></a>
+            <a href="media.html" class="section-box"><span>Media</span></a>
+            <a href="music.html" class="section-box"><span>Music</span></a>
+            <a href="lists.html" class="section-box"><span>Lists</span></a>
         </div>
-    </main>
-
-    <script>
-document.addEventListener('DOMContentLoaded', function() {
-    // Get all navigation links
-    const navLinks = document.querySelectorAll('.nav-links a');
-    
-    // Smooth scroll functionality
-    navLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href');
-            const targetSection = document.querySelector(targetId);
-            
-            if (targetSection) {
-                targetSection.scrollIntoView({
-                    behavior: 'smooth'
-                });
-            }
-        });
-    });
-
-    // Active section highlighting
-    function updateActiveSection() {
-        const sections = document.querySelectorAll('section');
-        const scrollPosition = window.pageYOffset;
-
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop - 100; // Offset for better trigger point
-            const sectionHeight = section.offsetHeight;
-            const sectionId = section.getAttribute('id');
-
-            if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-                // Remove active class from all links
-                navLinks.forEach(link => link.classList.remove('active'));
-                
-                // Add active class to corresponding link
-                const correspondingLink = document.querySelector(`.nav-links a[href="#${sectionId}"]`);
-                if (correspondingLink) {
-                    correspondingLink.classList.add('active');
-                }
-            }
-        });
-    }
-
-    // Add scroll event listener
-    window.addEventListener('scroll', updateActiveSection);
-
-    // Dark mode toggle
-    const darkModeToggle = document.getElementById('darkModeToggle');
-    const body = document.body;
-    
-    darkModeToggle.addEventListener('click', () => {
-        body.classList.toggle('dark-mode');
-        const icon = darkModeToggle.querySelector('i');
-        if (body.classList.contains('dark-mode')) {
-            icon.classList.replace('fa-moon', 'fa-sun');
-        } else {
-            icon.classList.replace('fa-sun', 'fa-moon');
-        }
-    });
-
-    // Music player
-    const musicToggle = document.getElementById('musicToggle');
-    const audio = new Audio('midwe.mp3'); // Add your music file path
-    let isPlaying = false;
-
-    musicToggle.addEventListener('click', () => {
-        if (isPlaying) {
-            audio.pause();
-            musicToggle.querySelector('i').classList.replace('fa-pause', 'fa-music');
-        } else {
-            audio.play();
-            musicToggle.querySelector('i').classList.replace('fa-music', 'fa-pause');
-        }
-        isPlaying = !isPlaying;
-    });
-
-    // Call updateActiveSection on page load
-    updateActiveSection();
-});
-    </script>
-
+    </div>
 </body>
 </html>
+

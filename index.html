@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Subhankar Panda</title>
+    <link rel="icon" href="lotus (1).png" type="image/x-icon" />
+
     <script src="https://kit.fontawesome.com/055c773eb0.js" crossorigin="anonymous"></script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -224,8 +226,8 @@
             padding-bottom: 10px;
             transition: 0.1s ease-in-out;
             user-select: none;
-            width: 16%;
-            margin-left: -0.5em;
+            width: 10%;
+            
         }
         .box-button a {
             color: #fff;
@@ -311,6 +313,67 @@
                 width: 30%;
             }
         }
+
+        /* ——————————————————————————————————————————————
+   UNIVERSAL CARD LAYOUT (1024px → 1920px)
+   keeps it centered, same aspect ratio, same padding
+   —————————————————————————————————————————————— */
+@media (min-width: 1024px) and (max-width: 1920px) {
+  body {
+    /* always center the background container */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    padding: 0;
+  }
+
+  .container {
+    /* fluid width between 60vw and 1000px */
+    width: clamp(600px, 60vw, 1000px);
+    /* keep height proportional (~9:5) */
+    height: auto;
+    aspect-ratio: 9 / 5;
+    /* inner padding */
+    padding: 2rem;
+    background: #000;
+    border: 1px solid #000;
+    display: flex;
+    flex-direction: row;
+  }
+
+  .left-side {
+    flex: 2;
+    padding-right: 2rem;
+  }
+
+  .right-side {
+    flex: 1;
+    gap: 2rem;
+  }
+
+  .name {
+    font-size: clamp(2rem, 4vw, 3.5rem);
+  }
+
+  .para {
+    font-size: clamp(1rem, 1.5vw, 1.5rem);
+    line-height: 1.4;
+  }
+
+  .section-box {
+    width: 100%;
+    max-width: 180px;
+    height: 60px;
+    font-size: 1.1rem;
+  }
+
+  .box-button {
+    width: 30%;
+    margin: 1.5rem 0;
+  }
+}
+
         
         /* Tablet */
         @media (max-width: 768px) {
